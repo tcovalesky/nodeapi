@@ -1,9 +1,18 @@
 const express = require("express");
 const morgan = require("morgan");
 const dotenv = require("dotenv");
+const mongoose = require("mongoose");
 const postRoutes = require("./routes/post");
 
 dotenv.config();
+
+mongoose.connect(process.env.MONGO_URI).then(() => {
+  console.log("DB Connected!!");
+});
+
+mongoose.connection.on("error", (err) => {
+  console.log(`DB Connection error: ${err.message}`);
+});
 
 const app = express();
 const port = process.env.PORT || 8080;
