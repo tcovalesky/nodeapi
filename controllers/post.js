@@ -9,8 +9,6 @@ exports.getPosts = (req, res) => {
 };
 
 exports.createPost = (req, res) => {
-  const errors = validationResult(req);
-  console.log(errors.errors);
   const post = new Post(req.body);
   post.save().then((post) => res.status(201).json({ post }));
 };
