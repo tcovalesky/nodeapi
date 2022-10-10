@@ -1,5 +1,5 @@
 const express = require("express");
-const { getPosts, createPost } = require("../controllers/post");
+const { getPosts, getPost, createPost } = require("../controllers/post");
 const {
   createPostValidator,
   createPostValidationRules,
@@ -8,6 +8,7 @@ const {
 const router = express.Router();
 
 router.get("/", getPosts);
+router.get("/:id", getPost);
 router.post("/", createPostValidationRules, createPostValidator, createPost);
 
 module.exports = router;
