@@ -3,11 +3,11 @@ const mongoose = require("mongoose");
 const postSchema = new mongoose.Schema({
   title: {
     type: String,
-    required: "Title is required",
+    required: true,
   },
   body: {
     type: String,
-    required: "Body is required",
+    required: true,
   },
 });
 
